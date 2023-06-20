@@ -1,6 +1,6 @@
 import openai
 
-openai.api_key = "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"
+openai.api_key = "Hier deinen API-Key einfügen"
 
 prompt = "Welche APIs gibt es von OpenAI?"
 
