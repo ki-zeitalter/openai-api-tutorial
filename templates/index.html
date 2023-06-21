@@ -29,7 +29,7 @@
                 {{ entry['role'] }}
             </div>
             <div class="col">
-                {{ entry['content'] }}
+                <span style="white-space: pre-line">{{ entry['content'] }}</span>
             </div>
         </div>
         {% endfor %}
@@ -58,7 +58,7 @@
         $("#sendButton").click(function () {
             $(this).prop("disabled", true);
             $(this).html(
-                `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> sende...`
+                `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`
             );
 
             $("#promptForm").submit();
