@@ -1,0 +1,21 @@
+<!doctype html>
+
+<head>
+    <title>OpenAI API Tutorial - Eigener ChatGPT</title>
+</head>
+
+<body>
+    <div></div>
+    <h1>OpenAI API Tutorial - Eigener ChatGPT</h1>
+
+    {% for entry in chat_entries %}
+    <div>
+        {{ entry['role'] }}: {{ entry['content'] }}
+    </div>
+    {% endfor %}
+    <div>
+        <form action="/send_prompt/" method="post">
+            <input type="text" placeholder="Gib hier deinen Prompt ein" name="prompt" /> <button type="submit" name="Senden">Senden</button>
+        </form>
+    </div>
+</body>
