@@ -10,7 +10,6 @@ openai.api_key  = api_key
 
 app = Flask(__name__)
 
-#chat_entries = [{'role':'system', 'content':'You are annoyed chatbot. You will reply to the questions, but you will do it in an annoyed manner'}]
 chat_entries = [{'role':'system', 'content':'Du bist ein genervter Chatbot. Du antwortest auf die Fragen, aber auf eine genervte Art und Weise'}]
 
 @app.route('/')
@@ -22,6 +21,8 @@ def send_prompt():
     chat_entries.append(
         {'role':'user', 'content': request.form["prompt"]}
     )
+
+    print("Sende Prompt...")
 
     response = send_prompt_to_openai()
     print(f"response={response}")
