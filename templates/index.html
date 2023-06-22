@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <title>OpenAI API Tutorial - Eigener ChatGPT</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>OpenAI API Tutorial - Eigener ChatGPT</h1>
+            </div>
+        </div>
+
+
+        {% for entry in chat_entries %}
+        <div class="row">
+            <div class="col-md-1">
+                {{ entry['role'] }}
+            </div>
+            <div class="col">
+                <span style="white-space: pre-line">{{ entry['content'] }}</span>
+            </div>
+        </div>
+        {% endfor %}
+
+        <form action="/send_prompt/" method="post" id="promptForm">
+            <div class="row">
+                <div class="col-md-1">user</div>
+                <div class="col-md-10">
+                    <input class="form-control" id="prompt-input" type="text" placeholder="Gib hier deinen Prompt ein"
+                        name="prompt" />
+                </div>
+                <div class="col-md-1">
+                    <button id="sendButton" class="btn btn-primary" type="submit" name="Senden">Senden</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#sendButton").click(function () {
+            $(this).prop("disabled", true);
+            $(this).html(
+                `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`
+            );
+
+            $("#promptForm").submit();
+        });
+    });
+</script>
+
+</html>
