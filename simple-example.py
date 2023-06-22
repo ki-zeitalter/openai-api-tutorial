@@ -1,6 +1,6 @@
 import openai
 
-openai.api_key = "API KEY HIER EINFÜGEN"
+openai.api_key = "Hier deinen API-Key einfügen"
 
 prompt = "Welche APIs gibt es von OpenAI?"
 
