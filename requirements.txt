@@ -1,3 +1,4 @@
 openai==0.27.8
 Flask==2.3.2
 pyhton-dotenv==1.0.0
+aiohttp>=3.9.0 # not directly required, pinned by Snyk to avoid a vulnerability
